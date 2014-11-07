@@ -99,6 +99,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="addTextField" destination="BSK-W5-juG" id="mVL-ax-v4w"/>
                         <outlet property="tableView" destination="PoV-mk-rI2" id="IJl-ug-jet"/>
                     </connections>
                 </viewController>
