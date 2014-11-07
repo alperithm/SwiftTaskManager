@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -20,43 +21,91 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehh-8R-Eko">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <connections>
+                                    <action selector="addTableCellButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="bvg-A4-otu"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BSK-W5-juG">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="326" id="bVg-ma-xMb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bVg-ma-xMb"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="bVg-ma-xMb"/>
+                                    </mask>
+                                </variation>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="PoV-mk-rI2" secondAttribute="trailing" id="R10-ht-rQi"/>
+                            <constraint firstItem="PoV-mk-rI2" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="921-z3-1gv"/>
+                            <constraint firstAttribute="centerX" secondItem="ehh-8R-Eko" secondAttribute="centerX" constant="173" id="DWa-bz-ysG"/>
+                            <constraint firstItem="BSK-W5-juG" firstAttribute="centerY" secondItem="ehh-8R-Eko" secondAttribute="centerY" id="MeG-kN-Qyq"/>
+                            <constraint firstAttribute="trailing" secondItem="PoV-mk-rI2" secondAttribute="trailing" id="QQD-Ob-dsf"/>
+                            <constraint firstItem="ehh-8R-Eko" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="8" id="Rgn-Bx-VLw"/>
                             <constraint firstItem="PoV-mk-rI2" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="SwX-yf-tYf"/>
-                            <constraint firstItem="PoV-mk-rI2" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="g5M-Sw-Xo8"/>
-                            <constraint firstItem="PoV-mk-rI2" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="hpQ-cE-DhI"/>
+                            <constraint firstItem="BSK-W5-juG" firstAttribute="leading" secondItem="ehh-8R-Eko" secondAttribute="trailing" constant="8" symbolic="YES" id="TyV-BE-2Om"/>
+                            <constraint firstItem="PoV-mk-rI2" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="azJ-ag-CEW"/>
+                            <constraint firstItem="ehh-8R-Eko" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="fq7-T9-GFr"/>
+                            <constraint firstItem="PoV-mk-rI2" firstAttribute="top" secondItem="ehh-8R-Eko" secondAttribute="bottom" constant="8" symbolic="YES" id="wF5-CP-Xe6"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="PoV-mk-rI2"/>
+                                <exclude reference="ehh-8R-Eko"/>
+                                <exclude reference="BSK-W5-juG"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="R10-ht-rQi"/>
+                                <exclude reference="DWa-bz-ysG"/>
+                                <exclude reference="Rgn-Bx-VLw"/>
+                                <exclude reference="fq7-T9-GFr"/>
+                                <exclude reference="921-z3-1gv"/>
+                                <exclude reference="QQD-Ob-dsf"/>
                                 <exclude reference="SwX-yf-tYf"/>
-                                <exclude reference="g5M-Sw-Xo8"/>
-                                <exclude reference="hpQ-cE-DhI"/>
+                                <exclude reference="azJ-ag-CEW"/>
+                                <exclude reference="wF5-CP-Xe6"/>
+                                <exclude reference="MeG-kN-Qyq"/>
+                                <exclude reference="TyV-BE-2Om"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="PoV-mk-rI2"/>
+                                <include reference="ehh-8R-Eko"/>
+                                <include reference="BSK-W5-juG"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="R10-ht-rQi"/>
-                                <include reference="SwX-yf-tYf"/>
-                                <include reference="g5M-Sw-Xo8"/>
-                                <include reference="hpQ-cE-DhI"/>
+                                <exclude reference="DWa-bz-ysG"/>
+                                <include reference="Rgn-Bx-VLw"/>
+                                <include reference="fq7-T9-GFr"/>
+                                <include reference="921-z3-1gv"/>
+                                <include reference="QQD-Ob-dsf"/>
+                                <exclude reference="SwX-yf-tYf"/>
+                                <include reference="azJ-ag-CEW"/>
+                                <include reference="wF5-CP-Xe6"/>
+                                <include reference="MeG-kN-Qyq"/>
+                                <include reference="TyV-BE-2Om"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="addTextField" destination="BSK-W5-juG" id="mVL-ax-v4w"/>
                         <outlet property="tableView" destination="PoV-mk-rI2" id="IJl-ug-jet"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="475.5" y="459"/>
         </scene>
     </scenes>
 </document>

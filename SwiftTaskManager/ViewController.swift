@@ -8,14 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addTextField: UITextField!
+    
+    // セルに表示するテキスト
+    var texts = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // TableViewデリゲートメソッド利用準備
         tableView.delegate = self
         tableView.dataSource = self
+        
+        // TextFieldデリゲートメソッド利用準備
+        addTextField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,8 +31,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
     
-    // セルに表示するテキスト
-    let texts = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    /**
+    *   TableViewデリゲートメソッド
+    */
     
     // セルの行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,6 +49,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    // セルを追加する
+    @IBAction func addTableCellButton(sender: AnyObject) {
+        texts.append(addTextField.text)
+        tableView.reloadData()
+        addTextField.text = String()
+    }
     
+    /**
+    *   TextFieldデリゲートメソッド
+    */
+    
+    // テキストフィールド入力終了後キーボードを閉じる
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
 }
 
