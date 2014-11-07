@@ -59,13 +59,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         println(String(format: "touch %d !", indexPath.row))
     }
     
-    // セルの消去
-    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!){
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        var doneAction = UITableViewRowAction(style: .Normal, title: "完了") { (action, indexPath) -> Void in
+            tableView.editing = false
+            println("完了！")
+        }
+        doneAction.backgroundColor = UIColor.greenColor()
         
-        if(editingStyle == UITableViewCellEditingStyle.Delete){
-            texts.removeAtIndex(indexPath.row)
+        var deleteAction = UITableViewRowAction(style: .Normal, title: "削除") { (action, indexPath) -> Void in
+            tableView.editing = false
+            self.texts.removeAtIndex(indexPath.row)
             tableView.reloadData();
         }
+        deleteAction.backgroundColor = UIColor.redColor()
+        
+        return [deleteAction, doneAction]
+    }
+    
+    // コイツが無いとスワイプスライド不可能
+    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!){
     }
     
     // セルを追加する
