@@ -45,15 +45,36 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         
         cell.textLabel.text = texts[indexPath.row]
-        cell.textLabel.textAlignment = NSTextAlignment.Center
+        // Standard options
+        cell.accessoryType = UITableViewCellAccessoryType.None
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        //cell.accessoryType = UITableViewCellAccessoryType.DetailDisclosureButton
+        //cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+        //cell.accessoryType = UITableViewCellAccessoryType.DetailButton
         return cell
+    }
+    
+    // セルの選択時の動作
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println(String(format: "touch %d !", indexPath.row))
+    }
+    
+    // セルの消去
+    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!){
+        
+        if(editingStyle == UITableViewCellEditingStyle.Delete){
+            texts.removeAtIndex(indexPath.row)
+            tableView.reloadData();
+        }
     }
     
     // セルを追加する
     @IBAction func addTableCellButton(sender: AnyObject) {
-        texts.append(addTextField.text)
-        tableView.reloadData()
-        addTextField.text = String()
+        if !addTextField.text.isEmpty {
+            texts.append(addTextField.text)
+            tableView.reloadData()
+            addTextField.text = String()
+        }
     }
     
     /**
