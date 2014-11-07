@@ -44,13 +44,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         
-        cell.textLabel.text = texts[indexPath.row]
+        cell.textLabel.text = texts.reverse()[indexPath.row]
         // Standard options
-        cell.accessoryType = UITableViewCellAccessoryType.None
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        //cell.accessoryType = UITableViewCellAccessoryType.DetailDisclosureButton
-        //cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-        //cell.accessoryType = UITableViewCellAccessoryType.DetailButton
         return cell
     }
     
@@ -85,6 +81,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if !addTextField.text.isEmpty {
             texts.append(addTextField.text)
             tableView.reloadData()
+            self.view.endEditing(true)
             addTextField.text = String()
         }
     }
