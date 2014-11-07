@@ -24,7 +24,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     // セルに表示するテキスト
-    let texts = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    var texts = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
     // セルの行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,6 +40,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-    
+    // セルを追加する
+    @IBAction func addTableCellButton(sender: AnyObject) {
+        println("add Cell")
+        texts.append(String(format: "testCell%02d", texts.count))
+        tableView.reloadData()
+    }
 }
 
