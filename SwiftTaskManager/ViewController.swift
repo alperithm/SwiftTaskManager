@@ -44,16 +44,46 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         
-        cell.textLabel.text = texts[indexPath.row]
-        cell.textLabel.textAlignment = NSTextAlignment.Center
+        cell.textLabel.text = texts.reverse()[indexPath.row]
+        // Standard options
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         return cell
+    }
+    
+    // セルの選択時の動作
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println(String(format: "touch %d !", indexPath.row))
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        var doneAction = UITableViewRowAction(style: .Normal, title: "完了") { (action, indexPath) -> Void in
+            tableView.editing = false
+            println("完了！")
+        }
+        doneAction.backgroundColor = UIColor.greenColor()
+        
+        var deleteAction = UITableViewRowAction(style: .Normal, title: "削除") { (action, indexPath) -> Void in
+            tableView.editing = false
+            self.texts.removeAtIndex(indexPath.row)
+            tableView.reloadData();
+        }
+        deleteAction.backgroundColor = UIColor.redColor()
+        
+        return [deleteAction, doneAction]
+    }
+    
+    // コイツが無いとスワイプスライド不可能
+    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!){
     }
     
     // セルを追加する
     @IBAction func addTableCellButton(sender: AnyObject) {
-        texts.append(addTextField.text)
-        tableView.reloadData()
-        addTextField.text = String()
+        if !addTextField.text.isEmpty {
+            texts.append(addTextField.text)
+            tableView.reloadData()
+            self.view.endEditing(true)
+            addTextField.text = String()
+        }
     }
     
     /**

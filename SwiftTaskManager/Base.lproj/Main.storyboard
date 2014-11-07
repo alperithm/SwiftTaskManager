@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -50,12 +51,16 @@
                         <constraints>
                             <constraint firstItem="PoV-mk-rI2" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="921-z3-1gv"/>
                             <constraint firstAttribute="centerX" secondItem="ehh-8R-Eko" secondAttribute="centerX" constant="173" id="DWa-bz-ysG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PoV-mk-rI2" secondAttribute="trailing" constant="-16" id="J6h-8h-sVs"/>
                             <constraint firstItem="BSK-W5-juG" firstAttribute="centerY" secondItem="ehh-8R-Eko" secondAttribute="centerY" id="MeG-kN-Qyq"/>
+                            <constraint firstItem="PoV-mk-rI2" firstAttribute="top" secondItem="BSK-W5-juG" secondAttribute="bottom" constant="4" id="NYT-h7-AiT"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="PoV-mk-rI2" secondAttribute="bottom" id="PU6-6V-q6B"/>
                             <constraint firstAttribute="trailing" secondItem="PoV-mk-rI2" secondAttribute="trailing" id="QQD-Ob-dsf"/>
                             <constraint firstItem="ehh-8R-Eko" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="8" id="Rgn-Bx-VLw"/>
                             <constraint firstItem="PoV-mk-rI2" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="SwX-yf-tYf"/>
                             <constraint firstItem="BSK-W5-juG" firstAttribute="leading" secondItem="ehh-8R-Eko" secondAttribute="trailing" constant="8" symbolic="YES" id="TyV-BE-2Om"/>
                             <constraint firstItem="PoV-mk-rI2" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="azJ-ag-CEW"/>
+                            <constraint firstItem="PoV-mk-rI2" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="dSt-8U-8sh"/>
                             <constraint firstItem="ehh-8R-Eko" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="fq7-T9-GFr"/>
                             <constraint firstItem="PoV-mk-rI2" firstAttribute="top" secondItem="ehh-8R-Eko" secondAttribute="bottom" constant="8" symbolic="YES" id="wF5-CP-Xe6"/>
                         </constraints>
@@ -70,12 +75,16 @@
                                 <exclude reference="Rgn-Bx-VLw"/>
                                 <exclude reference="fq7-T9-GFr"/>
                                 <exclude reference="921-z3-1gv"/>
+                                <exclude reference="J6h-8h-sVs"/>
+                                <exclude reference="NYT-h7-AiT"/>
                                 <exclude reference="QQD-Ob-dsf"/>
                                 <exclude reference="SwX-yf-tYf"/>
                                 <exclude reference="azJ-ag-CEW"/>
+                                <exclude reference="dSt-8U-8sh"/>
                                 <exclude reference="wF5-CP-Xe6"/>
                                 <exclude reference="MeG-kN-Qyq"/>
                                 <exclude reference="TyV-BE-2Om"/>
+                                <exclude reference="PU6-6V-q6B"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -89,12 +98,16 @@
                                 <include reference="Rgn-Bx-VLw"/>
                                 <include reference="fq7-T9-GFr"/>
                                 <include reference="921-z3-1gv"/>
+                                <include reference="J6h-8h-sVs"/>
+                                <include reference="NYT-h7-AiT"/>
                                 <include reference="QQD-Ob-dsf"/>
                                 <exclude reference="SwX-yf-tYf"/>
                                 <include reference="azJ-ag-CEW"/>
+                                <include reference="dSt-8U-8sh"/>
                                 <include reference="wF5-CP-Xe6"/>
                                 <include reference="MeG-kN-Qyq"/>
                                 <include reference="TyV-BE-2Om"/>
+                                <include reference="PU6-6V-q6B"/>
                             </mask>
                         </variation>
                     </view>
